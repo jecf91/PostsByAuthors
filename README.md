@@ -41,7 +41,3 @@ This command will setup a local env that will open on the following link:
 `http://localhost:5173/`
 
 For this, you will need to have [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) installed on your machine as well as [node](https://nodejs.org/en)
-
-### Next steps:
-
-Connect the project to an external api, currently it just uses local state.

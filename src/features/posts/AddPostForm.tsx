@@ -12,20 +12,20 @@ const OptionsList = ({ author }: { author: User }) => (
 
 const AddPostForm = () => {
   const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
+  const [body, setBody] = useState('');
   const [userId, setUserId] = useState('');
 
   const authors = useSelector(selectAllUsers);
   const dispatch = useDispatch();
 
-  const canSavePost = Boolean(title) && Boolean(content) && Boolean(userId);
+  const canSavePost = Boolean(title) && Boolean(body) && Boolean(userId);
 
   function handleTitleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setTitle(e.target.value);
   }
 
   function handleContentChange(e: React.ChangeEvent<HTMLTextAreaElement>) {
-    setContent(e.target.value);
+    setBody(e.target.value);
   }
 
   function handleAuthorChange(e: React.ChangeEvent<HTMLSelectElement>) {
@@ -34,9 +34,9 @@ const AddPostForm = () => {
 
   function handlePostSubmit() {
     if (canSavePost) {
-      dispatch(addPost({ title, content, userId }));
+      dispatch(addPost({ title, body, userId }));
       setTitle('');
-      setContent('');
+      setBody('');
       setUserId('');
       return;
     }
@@ -72,7 +72,7 @@ const AddPostForm = () => {
         <textarea
           id="postContent"
           name="postContent"
-          value={content}
+          value={body}
           onChange={handleContentChange}
         />
         <button
