@@ -8,8 +8,14 @@ export interface IReaction {
 export type Post = {
   id: string;
   title: string;
-  content: string;
+  body: string;
   userId: string;
   date: string;
   reactions: IReaction;
+};
+
+export type ApiPost = {
+  posts: Post[];
+  status: 'idle' | 'loading' | 'succeeded' | 'failed';
+  error: null | unknown;
 };
